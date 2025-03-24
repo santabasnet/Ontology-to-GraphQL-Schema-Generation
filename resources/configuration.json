@@ -1,0 +1,29 @@
+{
+  "ontologyInputFile": "resources/xml/definitions.xml/fhir-all-xsd/fhir-single.xsd",
+  "ontologyProfileFile": "resources/xml/definitions.xml/profiles-resources.xml",
+  "supportedFormats": [
+    "xml",
+    "json",
+    "ttl"
+  ],
+  "basicTypeDefinitions": "resources/basic_types.json",
+  "outputFolder": "resources/schema/",
+  "inferInverseRelation": "ON",
+  "outputFile": "schema.graphql",
+  "indexProperties": "OFF",
+  "indexInformation": [
+    {
+      "propertyName": "name",
+      "indexType": ["term", "fulltext", "trigram"]
+    },{
+      "propertyName": "given",
+      "indexType": ["term", "fulltext", "trigram"]
+    },{
+      "propertyName": "family",
+      "indexType": ["term", "fulltext", "trigram"]
+    },{
+      "propertyName": "identifier",
+      "indexType": ["exact"]
+    }
+  ]
+}
