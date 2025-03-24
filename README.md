@@ -112,19 +112,19 @@ For Example:
    
 2. Output:
 ```GraphQL
-type Organization {
-    name: String @search(by: [fulltext])
-  	identifier: [Identifier]
-  	contact: [OrganizationContact]
-  	alias: [String] @search(by: [fulltext])
-  	id: String! @id
-  	partOf: Organization
-  	endpoint: [Endpoint]
-  	telecom: [ContactPoint]
-  	address: [Address]
-  	type: [CodeableConcept]
-  	active: Boolean @search
-}
+   type Organization {
+      name: String @search(by: [fulltext])
+     	identifier: [Identifier]
+     	contact: [OrganizationContact]
+     	alias: [String] @search(by: [fulltext])
+     	id: String! @id
+     	partOf: Organization
+     	endpoint: [Endpoint]
+     	telecom: [ContactPoint]
+     	address: [Address]
+     	type: [CodeableConcept]
+     	active: Boolean @search
+   }
 ```
 
 3. Core Implementation:
