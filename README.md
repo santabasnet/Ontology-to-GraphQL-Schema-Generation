@@ -116,7 +116,7 @@ For Example:
 
 # ----------------------------------------
 # Author: Santa Basnet
-# Company: WiseYak Inc.
+# Company: Integrated ICT.
 # Date: Fri Jul 30 11:21:07 NPT 2021
 # ----------------------------------------
 
