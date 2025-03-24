@@ -1,5 +1,5 @@
 ## Ontology-to-GraphQL-Schema-Generation
-GraphQL schema generation for DGraph from FHIR[https://hl7.org/FHIR/] ontology. Currently it supports XML format. 
+GraphQL schema generation for DGraph from FHIR[https://hl7.org/FHIR/] ontology. This work is intended for schema auto generation to DGraph[https://dgraph.io/] database. Currently it supports XML format. 
 
 For Example: 
 
@@ -112,10 +112,51 @@ For Example:
    
 2. Output:
 ```GraphQL
-   type Organization {
+#----------------------------------*** Schema Definition Started ***----------------------------------
+
+# ----------------------------------------
+# Author: Santa Basnet
+# Company: WiseYak Inc.
+# Date: Fri Jul 30 11:21:07 NPT 2021
+# ----------------------------------------
+
+#----------------------------------*** Enumeration Types Section ***----------------------------------
+
+#...
+enum AddressUse {
+    Home
+	Work
+	Temp
+	Old
+	Billing
+}
+
+enum AddressType {
+    Postal
+	Physical
+	Both
+}
+#... and so on.
+#--------------------------------------*** Union Types Section ***-------------------------------------        
+
+union ContractActionContext = Encounter | EpisodeOfCare
+
+union ObservationDevice = Device | DeviceMetric
+
+union ObservationHasMember = MolecularSequence | Observation | QuestionnaireResponse
+#... and so on.
+
+
+type Money {
+    id: String! @id
+	value: Float
+	currency: String
+}
+
+type Organization {
       name: String @search(by: [fulltext])
-     	identifier: [Identifier]
-     	contact: [OrganizationContact]
+      identifier: [Identifier]
+      contact: [OrganizationContact]
      	alias: [String] @search(by: [fulltext])
      	id: String! @id
      	partOf: Organization
@@ -124,7 +165,10 @@ For Example:
      	address: [Address]
      	type: [CodeableConcept]
      	active: Boolean @search
-   }
+}
+
+# ... and so on.
+#----------------------------------*** Schema Definition Completed ***----------------------------------
 ```
 
 3. Core Implementation:
